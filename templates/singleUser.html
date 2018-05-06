@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if blogs|length == 0 %}
+    <p>No Blogs yet</p>
+    {% else %}
+
+        <div class="container">
+            {% for blog in blogs %}
+            <div class="container">
+       
+                    <div>
+                        <h3>{{blog.name}}</h3>
+                        <p>{{blog.content}}</p>
+                    </div>
+                    <hr>
+                   
+                </div>
+            <!--<div>
+                <h3><a href="/viewpost/?id={{blog.id}}">{{blog.name}}</a></h3>
+                <p>{{blog.content}}</p>
+            </div>
+            <hr>-->
+            {% endfor %}
+        </div>
+
+    {% endif %}
+{% endblock %}

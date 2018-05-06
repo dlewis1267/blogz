@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <style>
+            .error {color:red;}
+            span {display:block;}
+            .nav-left {display: inline;}
+            .nav-left a {margin-right:30px;}
+            .nav-right {float:right; display: inline;}
+            .nav-right a {margin-left:30px;}
+            .blogz-li{font-size:14px; color:#444;}
+            .blogz-li a{font-size:16px;}
+            span.error {display: inline;}
+        </style>
+    </head>
+<body>
+    <div class="nav-left">
+        <a href="/">Home</a><a href="/blog">All Posts</a><a href="/newpost">New Post</a>
+    </div>
+    <div class="nav-right">
+        <a href="/login">Login</a><a href="/logout">Logout</a>
+    </div>
+    <div style="height:1px; clear:both">&nbsp;</div>
+    <h1>Blogz!</h1>
+
+    {% block content %}
+    {% endblock %}
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    <div>
+    {% for category,message in messages %}
+        <p class="{{category}}">{{message}}</p>
+    {% endfor %}
+    </div>
+    {% endwith %}
+
+</body>
+</html>
